@@ -1,5 +1,6 @@
-let allProducts = [];      
-let favourites = new Set(); 
+let allProducts = [];
+let favourites = new Set();
+let searchTerm = "";
 let sortMode = "default";
 let showFavOnly = false;
 
@@ -49,7 +50,6 @@ function getVisibleProducts() {
     list = list.filter((p) => favourites.has(p.id));
   }
 
-  // Sort on a copy so we don't mutate the filtered array in place
   list = [...list];
   if (sortMode === "price-asc") {
     list.sort((a, b) => a.price - b.price);
