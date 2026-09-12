@@ -1,11 +1,8 @@
-// ---- State ----
-let allProducts = [];      // full list loaded from the API, never mutated after load
-let favourites = new Set(); // holds product ids that are marked as favourite
-let searchTerm = "";
+let allProducts = [];      
+let favourites = new Set(); 
 let sortMode = "default";
 let showFavOnly = false;
 
-// ---- DOM references ----
 const statusEl = document.getElementById("status");
 const gridEl = document.getElementById("grid");
 const searchInput = document.getElementById("searchInput");
@@ -13,7 +10,6 @@ const sortSelect = document.getElementById("sortSelect");
 const favOnlyBtn = document.getElementById("favOnlyBtn");
 const favCountEl = document.getElementById("favCount");
 
-// ---- Load products from the API ----
 async function loadProducts() {
   statusEl.textContent = "Loading...";
   statusEl.classList.remove("error");
@@ -41,7 +37,6 @@ async function loadProducts() {
   }
 }
 
-// ---- Filtering, sorting, and rendering ----
 function getVisibleProducts() {
   let list = allProducts;
 
@@ -136,7 +131,6 @@ function updateFavCount() {
   favCountEl.textContent = "♥ " + count + (count === 1 ? " favourite" : " favourites");
 }
 
-// ---- Event listeners ----
 searchInput.addEventListener("input", (e) => {
   searchTerm = e.target.value;
   render();
@@ -154,5 +148,4 @@ favOnlyBtn.addEventListener("click", () => {
   render();
 });
 
-// ---- Start ----
 loadProducts();
