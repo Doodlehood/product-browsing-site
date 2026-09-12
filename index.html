@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Browser</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-row">
+      <h1>Product Browser</h1>
+      <div class="fav-count" id="favCount">♥ 0 favourites</div>
+    </div>
+
+    <div class="controls">
+      <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="Search products by title..."
+        autocomplete="off"
+      >
+
+      <select id="sortSelect" class="sort-select">
+        <option value="default">Sort: default</option>
+        <option value="price-asc">Price: low to high</option>
+        <option value="price-desc">Price: high to low</option>
+      </select>
+
+      <button id="favOnlyBtn" class="fav-only-btn" type="button">
+        Show favourites only
+      </button>
+    </div>
+  </header>
+
+  <main id="app">
+    <p id="status" class="status">Loading...</p>
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
